@@ -37,7 +37,7 @@ No Fly resources have been provisioned. The installed Fly CLI has no authenticat
 ## Cutover gates
 
 1. Select and authenticate the destination account; confirm the hosting cost preference. Keep credentials out of chat and source files.
-2. The D1 export has been imported and verified locally: integrity OK, zero foreign-key violations, matching row counts across all 11 source tables, and 10 sampled raw-feed hashes verified after decompression. The ignored `storage/migration-2026-11-12/` directory contains `source.sql`, `lab.sqlite`, and `verification.json` with file hashes. This is a historical point-in-time backup, not current continuous history. Refresh it if later D1 data is needed. Do not overwrite an existing database.
+2. The D1 export has been imported and verified locally: integrity OK, zero foreign-key violations, matching row counts across all 11 source tables, and 10 sampled raw-feed hashes verified after decompression. In the local portfolio checkout, the ignored `live-data/storage/migration-2026-11-12/` directory contains `source.sql`, `lab.sqlite`, and `verification.json` with file hashes. This is a historical point-in-time backup, not current continuous history. Refresh it if later D1 data is needed. Do not overwrite an existing database.
 3. Start the replacement on persistent storage. Verify independent scheduled source timestamps, both observatories, location maps, raw replay and forecast clocks at the replacement URL.
 4. Configure/test backups and restoration. One attached volume alone is not a backup.
 5. Update portfolio project links, source page API origins, and canonical URLs to the verified destination. Retain dated prior audit evidence as historical records.
@@ -45,4 +45,8 @@ No Fly resources have been provisioned. The installed Fly CLI has no authenticat
 
 ## Verification performed
 
-22 existing/domain/storage/runtime tests passed. Portable runtime tests verified persisted state after reopen, migration idempotency, transaction rollback and BLOB handling. Local HTTP checks verified readiness, same-origin dashboard HTML, empty API state, write rejection, HEAD behavior and path containment. GitHub Pages transit and seismic pages rendered real data. Transit route selection changed the map and metrics; the 390px mobile layout had no horizontal overflow. No browser errors were observed. Fly/GCP acceptance and Docker image execution remain pending; neither was provisioned.
+23 domain/storage/runtime tests passed. Portable runtime tests verified persisted state after reopen, migration idempotency, transaction rollback and BLOB handling. Local HTTP checks verified readiness, same-origin dashboard HTML, empty API state, write rejection, HEAD behavior and path containment. GitHub Pages transit and seismic pages rendered real data. Transit route selection changed the map and metrics; the 390px mobile layout had no horizontal overflow. No browser errors were observed. Fly/GCP acceptance and Docker image execution remain pending; neither was provisioned.
+
+## Cloudflare retirement status
+
+The lab was redeployed with an empty cron list (version `acb5fe66-1b93-421b-a41a-33f3991a8e0b`). Legacy dashboard pages now fetch the GitHub Pages snapshots. D1 remains intact for rollback; no other Cloudflare service was changed. The existing custom domain still passes through Cloudflare DNS/proxy; collection, storage for the current snapshot edition, and Pages hosting have moved to GitHub.

@@ -4,7 +4,7 @@ import worker, { collect } from '../src/worker.ts';
 import { SqliteStore } from '../runtime/sqlite.mjs';
 const output=resolve('public/snapshots');await mkdir(output,{recursive:true});
 const previousOrigin=process.env.PREVIOUS_ORIGIN;
-async function prior(kind){try{if(!previousOrigin)return null;const r=await fetch(`${previousOrigin}/snapshots/${kind}.json`,{signal:AbortSignal.timeout(15000)});return r.ok?await r.json():null;}catch{return null;}}
+async function prior(kind){try{if(!previousOrigin)return null;const r=await fetch(`${previousOrigin}/snapshots/${kind}.json?publish=${Date.now()}`,{signal:AbortSignal.timeout(15000)});return r.ok?await r.json():null;}catch{return null;}}
 const [oldTransit,oldSeismic]=await Promise.all([prior('transit'),prior('seismic')]);
 const db=new SqliteStore(),now=Date.now();
 if(oldSeismic?.available)for(const s of oldSeismic.snapshots)await db.prepare('INSERT OR IGNORE INTO seismic_snapshots VALUES(?,?,?,?,?,?)').bind(s.commit_sha,s.generated_at,s.imported_at,JSON.stringify(s.metrics),JSON.stringify(s.counts),JSON.stringify(s.quality)).run();
