@@ -1,0 +1,4 @@
+live-data/node_modules/
+live-data/public/
+live-data/storage/
+*.sqlite*

@@ -1,0 +1,81 @@
+{
+  "description": "Unmodified three-entity subset of the provider response: a valid vehicle plus a repeated ID with one (0,0), untimestamped placeholder and one real observation.",
+  "source_url": "https://svc.metrotransit.org/mtgtfs/vehiclepositions.pb",
+  "captured_at": "2026-11-12T09:55:01.907Z",
+  "full_source_sha256": "c517937b98f6065d310eddacc33f2bed24e2aa8864dd7ba822d9e7449f60b0af",
+  "feed": {
+    "header": {
+      "gtfsRealtimeVersion": "2.0",
+      "incrementality": 0,
+      "timestamp": 1794477293
+    },
+    "entity": [
+      {
+        "id": "1794477293_1855",
+        "vehicle": {
+          "trip": {
+            "tripId": "1135456",
+            "startDate": "20261112",
+            "routeId": "10",
+            "directionId": 0
+          },
+          "position": {
+            "latitude": 44.97227096557617,
+            "longitude": -93.27165222167969,
+            "bearing": 324
+          },
+          "currentStopSequence": 1,
+          "currentStatus": 1,
+          "timestamp": 1794477282,
+          "stopId": "19337",
+          "vehicle": {
+            "id": "1855",
+            "label": "1855"
+          }
+        }
+      },
+      {
+        "id": "1794477293_2029",
+        "vehicle": {
+          "trip": {
+            "tripId": "1294845",
+            "startDate": "20261112",
+            "routeId": "54",
+            "directionId": 1
+          },
+          "position": {
+            "latitude": 0,
+            "longitude": 0
+          },
+          "vehicle": {
+            "id": "2029"
+          }
+        }
+      },
+      {
+        "id": "1794477293_2029",
+        "vehicle": {
+          "trip": {
+            "tripId": "1301126",
+            "startDate": "20261112",
+            "routeId": "54",
+            "directionId": 0
+          },
+          "position": {
+            "latitude": 44.85643005371094,
+            "longitude": -93.23262786865234,
+            "bearing": 102,
+            "speed": 7
+          },
+          "currentStopSequence": 3,
+          "timestamp": 1794477288,
+          "stopId": "41255",
+          "vehicle": {
+            "id": "2029",
+            "label": "2029"
+          }
+        }
+      }
+    ]
+  }
+}
