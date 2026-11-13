@@ -70,7 +70,7 @@
 @media (max-width: 800px) { .lab-grid { grid-template-columns: minmax(0,1fr); gap: 0; } .lab-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 500px) { .lab-container { width: calc(100% - 2rem); } .lab-heading { align-items: flex-start; flex-direction: column; gap: 1rem; } .lab-page main { padding-top: 1.75rem; } .lab-metrics dd { font-size: 1.65rem; } .lab-controls { display: grid; } .lab-controls select { width: 100%; } .lab-chart { min-height: 230px; padding: .6rem; } }
 
-.lab-metrics { grid-template-columns: repeat(3,minmax(0,1fr)); }
+[data-lab="transit"] .lab-metrics { grid-template-columns: repeat(3,minmax(0,1fr)); }
 .lab-technical { margin-top: 2rem; }
 .lab-technical > summary { padding-block: 1rem; font-size: .9rem; }
-@media(max-width:600px) { .lab-metrics { grid-template-columns: 1fr; } .lab-metrics > div { padding-block: .7rem; } .lab-metrics dd { font-size: 1.65rem; } }
+@media(max-width:600px) { [data-lab="transit"] .lab-metrics { grid-template-columns: 1fr; } .lab-metrics > div { padding-block: .7rem; } .lab-metrics dd { font-size: 1.65rem; } }

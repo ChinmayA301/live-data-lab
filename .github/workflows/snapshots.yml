@@ -30,6 +30,8 @@ jobs:
         id: pages
       - run: npm ci --omit=dev --ignore-scripts
         working-directory: live-data
+      - run: npm test
+        working-directory: live-data
       - run: node scripts/build-free.mjs && node scripts/publish-snapshot.mjs
         working-directory: live-data
         env:
